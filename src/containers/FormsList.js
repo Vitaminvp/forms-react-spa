@@ -15,8 +15,18 @@ import PrintPDF from "../components/PrintPDF";
 import { langSelector } from "../reducers/lang";
 import { withAuth } from "../services";
 import Tooltip from "../components/ToolTip";
+import Pagination from "../components/Pagination";
 
 class FormsList extends Component {
+  state = {
+    pageOfItems: [],
+  };
+
+  onChangePage = pageOfItems => {
+    // update state with new page of items
+    this.setState({ pageOfItems: pageOfItems });
+  };
+
   componentDidMount() {
     if (!this.props.isFormsLoaded) {
       this.props.getForms();
@@ -58,7 +68,9 @@ class FormsList extends Component {
             marginBottom: 20,
           }}
         >
-          <ShortList forms={forms} isAuthorized={isAuthorized} />
+          <ShortList forms={this.state.pageOfItems} isAuthorized={isAuthorized} />
+
+          <Pagination items={this.props.forms} onChangePage={this.onChangePage} />
 
           {isAuthorized && <AddForm onAddForm={addForm} val={value} />}
         </Container>
