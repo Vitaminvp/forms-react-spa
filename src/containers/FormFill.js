@@ -33,11 +33,9 @@ class FormFill extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleChange = this.handleChange.bind(this);
-    this.fillState = this.fillState.bind(this);
   }
 
-  fillState() {
+  fillState = () => {
     const {
       form: { fields }
     } = this.props;
@@ -64,11 +62,11 @@ class FormFill extends Component {
     this.fillState();
   }
 
-  handleChange(name, value) {
+  handleChange = (name, value) => {
     this.setState({ [name]: value }, () =>
       console.log("this.state", this.state)
     );
-  }
+  };
 
   render() {
     const {
@@ -90,7 +88,6 @@ class FormFill extends Component {
     } = match;
 
     const isFilled = Object.keys(this.state).length;
-console.log("rating", rating);
     return (
       <React.Fragment>
         <Container

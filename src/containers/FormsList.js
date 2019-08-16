@@ -10,7 +10,6 @@ import { DragDropContext } from "react-beautiful-dnd";
 import ShortList from "../components/List";
 
 import { CssBaseline, Container } from "@material-ui/core";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import CircularDeterminate from "../components/CircularDeterminate";
 import PrintPDF from "../components/PrintPDF";
 import {langSelector} from "../reducers/lang";
@@ -22,9 +21,8 @@ class FormsList extends Component {
     if (!this.props.isFormsLoaded) {
       this.props.getForms();
     }
-    this.onDragEnd = this.onDragEnd.bind(this);
   }
-  onDragEnd(result) {
+  onDragEnd = result => {
     const { destination, source } = result;
     if (!destination) return;
     if (
@@ -38,7 +36,7 @@ class FormsList extends Component {
     const item = newForms.splice(source.index, 1);
     newForms.splice(destination.index, 0, item[0]);
     this.props.setFormsData(newForms);
-  }
+  };
   render() {
     const {
       forms,

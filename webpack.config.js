@@ -19,6 +19,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [miniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.js$/,
+        use: 'babel-loader'
       }
     ]
   },

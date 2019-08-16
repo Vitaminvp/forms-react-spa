@@ -37,7 +37,6 @@ const CheckMark = withHOCField(CheckMarkPure);
 class FormDetail extends Component {
   constructor(props) {
     super(props);
-    this.onDragEnd = this.onDragEnd.bind(this);
   }
 
   componentDidMount() {
@@ -47,7 +46,7 @@ class FormDetail extends Component {
       this.props.getForm(formId);
     }
   }
-  onDragEnd(result) {
+  onDragEnd = result => {
     const { destination, source } = result;
     if (!destination) return;
     if (
