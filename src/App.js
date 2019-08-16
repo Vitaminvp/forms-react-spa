@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import FormsList from "./containers/FormsList";
 import { FormattedMessage } from "react-intl";
 import Typed from 'react-typed';
-// import "./styles/App.css";
+import "./App.css";
 
 class App extends Component {
   render() {

@@ -1,11 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const miniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'index-bundle.js',
+    filename: 'main.js',
     publicPath: '/'
   },
   module: {
@@ -17,7 +18,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [miniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
@@ -27,6 +28,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
+    }),
+    new miniCssExtractPlugin({
+      filename: "styles.css"
     })
   ]
 };

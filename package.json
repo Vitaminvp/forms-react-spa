@@ -2,23 +2,24 @@
   "name": "form-builder",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/Vitaminvp/pdffiller_js_school#readme",
+  "homepage": "https://vitaminvp.github.io/forms-react-spa/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode=development --open --hot",
+    "prebuild": "rm -rf dist/*",
+    "build": "webpack --mode=production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vitaminvp/pdffiller_js_school.git"
+    "url": "git+https://github.com/Vitaminvp/forms-react-spa.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Vitaminvp/pdffiller_js_school/issues"
+    "url": "https://github.com/Vitaminvp/forms-react-spa/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
@@ -35,6 +36,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^3.0.0",
     "html-webpack-plugin": "^4.0.0-beta.8",
+    "mini-css-extract-plugin": "^0.8.0",
     "style-loader": "^0.23.1",
     "svg-react-loader": "^0.4.6",
     "webpack": "^4.35.3",
