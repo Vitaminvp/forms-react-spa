@@ -21,6 +21,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: [miniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: true,
+            },
+          },
+        ],
       }
     ]
   },
@@ -34,7 +46,7 @@ module.exports = {
     hot: true,
     open: true,
 
-    contentBase: "./build",
+    // contentBase: "./static",
 
     proxy: {
       './favicon.ico': 'http://pdffiller.com',
