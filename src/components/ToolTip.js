@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   tooltipBox: {
     position: "relative",
-    display: "inline-flex"
+    display: "inline-flex",
   },
   tooltip: {
     position: "absolute",
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     bottom: "100%",
     whiteSpace: "nowrap",
     boxShadow: "-1px -1px 3px 0px rgba(0,0,0,0.75)",
-    zIndex: 1
+    zIndex: 1,
   },
   tooltipArrow: {
     position: "absolute",
@@ -27,8 +27,8 @@ const useStyles = makeStyles({
     borderWidth: 5,
     borderStyle: "solid",
     borderColor: "rgba(0, 0, 0, 0.7) transparent transparent",
-    zIndex: 1
-  }
+    zIndex: 1,
+  },
 });
 
 export default function Tooltip({ children, text, ...rest }) {

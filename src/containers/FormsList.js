@@ -12,8 +12,8 @@ import ShortList from "../components/List";
 import { CssBaseline, Container } from "@material-ui/core";
 import CircularDeterminate from "../components/CircularDeterminate";
 import PrintPDF from "../components/PrintPDF";
-import {langSelector} from "../reducers/lang";
-import {withAuth} from "../services";
+import { langSelector } from "../reducers/lang";
+import { withAuth } from "../services";
 import Tooltip from "../components/ToolTip";
 
 class FormsList extends Component {
@@ -38,30 +38,29 @@ class FormsList extends Component {
     this.props.setFormsData(newForms);
   };
   render() {
-    const {
-      forms,
-      value,
-      addForm,
-      isAuthorized
-    } = this.props;
+    const { forms, value, addForm, isAuthorized } = this.props;
 
     if (!this.props.isFormsLoaded) {
       return <CircularDeterminate />;
     }
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <Tooltip text='Downloading PDF file'><PrintPDF /></Tooltip>
+        <Tooltip text="Downloading PDF file">
+          <PrintPDF />
+        </Tooltip>
         <CssBaseline />
         <Container
           maxWidth="sm"
-          style={{ background: "#eaeaea", padding: 20, borderRadius: 5, marginBottom: 20}}
+          style={{
+            background: "#eaeaea",
+            padding: 20,
+            borderRadius: 5,
+            marginBottom: 20,
+          }}
         >
           <ShortList forms={forms} isAuthorized={isAuthorized} />
 
-         {isAuthorized && <AddForm
-            onAddForm={addForm}
-            val={value}
-          />}
+          {isAuthorized && <AddForm onAddForm={addForm} val={value} />}
         </Container>
       </DragDropContext>
     );
@@ -80,16 +79,18 @@ FormsList.propTypes = {
 const mapStateToProps = state => ({
   forms: contactsSelector(state),
   isFormsLoaded: isLoaded(state, LOADING_FORMS),
-  lang: langSelector(state)
+  lang: langSelector(state),
 });
 
 const mapDispatchToProps = {
   addForm: addFormData,
   getForms: getFormsAction,
-  setFormsData
+  setFormsData,
 };
 
-export default withAuth(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FormsList));
+export default withAuth(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(FormsList)
+);

@@ -1,6 +1,6 @@
 export const API_USER = "shpax";
-export const URL_FORM = `http://forms-app.brutgroot.com/${API_USER}/forms/`;
-export const URL_FORM_LIST = `http://forms-app.brutgroot.com/${API_USER}/forms/list`;
+export const URL_FORM = `https://forms-app.brutgroot.com/${API_USER}/forms/`;
+export const URL_FORM_LIST = `https://forms-app.brutgroot.com/${API_USER}/forms/list`;
 
 const data = {
     id: 5,
