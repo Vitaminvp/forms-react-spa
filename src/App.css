@@ -1,0 +1,7 @@
+.MuiInputLabel-asterisk{
+    position: absolute;
+    color: red;
+}
+.MuiInputBase-root {
+    min-width: 300px;
+}
